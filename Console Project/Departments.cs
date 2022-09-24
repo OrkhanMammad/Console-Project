@@ -13,6 +13,7 @@ namespace Console_App
 
         public Departments()
         {
+            Employees = new Employees[0];   
         }
 
         public Departments(string departmentName, int workerLimit, int dsalaryLimit)
@@ -21,5 +22,6 @@ namespace Console_App
             WorkerLimit = workerLimit;
             DsalaryLimit = dsalaryLimit;
         }
+        
     }
 }

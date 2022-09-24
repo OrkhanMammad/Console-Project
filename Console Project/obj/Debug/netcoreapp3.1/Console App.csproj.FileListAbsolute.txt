@@ -12,3 +12,17 @@ C:\Users\Umid\source\repos\Console App\Console App\obj\Debug\netcoreapp3.1\Conso
 C:\Users\Umid\source\repos\Console App\Console App\obj\Debug\netcoreapp3.1\Console App.dll
 C:\Users\Umid\source\repos\Console App\Console App\obj\Debug\netcoreapp3.1\Console App.pdb
 C:\Users\Umid\source\repos\Console App\Console App\obj\Debug\netcoreapp3.1\Console App.genruntimeconfig.cache
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.exe
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.deps.json
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.runtimeconfig.json
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.runtimeconfig.dev.json
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.dll
+C:\Users\Orxan\Desktop\Console Project\Console Project\bin\Debug\netcoreapp3.1\Console App.pdb
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.csproj.AssemblyReference.cache
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.AssemblyInfoInputs.cache
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.AssemblyInfo.cs
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.csproj.CoreCompileInputs.cache
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.dll
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.pdb
+C:\Users\Orxan\Desktop\Console Project\Console Project\obj\Debug\netcoreapp3.1\Console App.genruntimeconfig.cache

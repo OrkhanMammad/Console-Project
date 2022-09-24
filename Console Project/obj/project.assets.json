@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Orxan\\Desktop\\Console Project\\ConsoleEnd\\Console Project\\Console App.csproj",
+      "projectUniqueName": "C:\\Users\\Orxan\\Desktop\\Console Project\\Console Project\\Console App.csproj",
       "projectName": "Console App",
-      "projectPath": "C:\\Users\\Orxan\\Desktop\\Console Project\\ConsoleEnd\\Console Project\\Console App.csproj",
+      "projectPath": "C:\\Users\\Orxan\\Desktop\\Console Project\\Console Project\\Console App.csproj",
       "packagesPath": "C:\\Users\\Orxan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Orxan\\Desktop\\Console Project\\ConsoleEnd\\Console Project\\obj\\",
+      "outputPath": "C:\\Users\\Orxan\\Desktop\\Console Project\\Console Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

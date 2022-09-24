@@ -45,7 +45,7 @@ namespace Console_App
 
         public void AddEmployees(string fullname, string position, int esalaryLimit, string edepartmentName)
         {
-            Employees employees = new Employees(fullname, position, esalaryLimit, edepartmentName)
+            Employees employee = new Employees(fullname, position, esalaryLimit, edepartmentName)
             {
                 FullName = fullname,
                 Position = position,
@@ -58,7 +58,37 @@ namespace Console_App
                 if (departments.DepartmentName.ToUpper() == edepartmentName.ToUpper())
                 {
                     Array.Resize(ref departments.Employees, departments.Employees.Length + 1);
-                    departments.Employees[departments.Employees.Length - 1] = employees;
+                    departments.Employees[departments.Employees.Length - 1] = employee;
+                }
+                
+            }
+        }
+
+        public void EditDepartment(string departmentName, int workerlimit, int salarylimit)
+        {
+            Console.WriteLine("yeni adi daxil et");
+            string newdepartmentName = Console.ReadLine();
+            //Console.WriteLine("yeni isci limiti daxil et");
+            //string newworkerlimitstr = Console.ReadLine();
+            //int newworkerlimitnum = int.Parse(newworkerlimitstr);
+            //Console.WriteLine("yeni salary limiti daxil et");
+            //string newsalarylimitstr = Console.ReadLine();
+
+            //int newsalarylimitnum = int.Parse(newsalarylimitstr);
+
+            foreach (Departments departments in _departments)
+            { 
+                if (!(departments.DepartmentName==departmentName) || workerlimit<1 || workerlimit>10 || salarylimit<250)
+                {
+                    Console.WriteLine("Duzgun melumat daxil et");
+                }
+                else
+                {
+                    departments.DepartmentName = newdepartmentName;
+
+                    departments.WorkerLimit = workerlimit;
+
+                    departments.DsalaryLimit = salarylimit;
                 }
             }
         }
@@ -67,7 +97,15 @@ namespace Console_App
         {
             foreach (Departments departments in _departments)
             {
-                Console.WriteLine(departments.DepartmentName);
+                Console.WriteLine(departments.DepartmentName+"-"+departments.WorkerLimit+"-"+departments.DsalaryLimit);
+            }
+        }
+
+        public void GetEmployeesCount()
+        {
+            foreach (Departments departments in _departments)
+            {
+                Console.WriteLine(departments.Employees.Length);
             }
         }
     }
