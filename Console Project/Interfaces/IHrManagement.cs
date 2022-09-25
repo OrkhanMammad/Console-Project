@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Console_App.Services;
+using Console_App.Interfaces;
 
 
-namespace Console_App
+namespace Console_App.Interfaces
 {
     interface IHrManagement
     {
@@ -14,8 +16,9 @@ namespace Console_App
         void GetEmployeesCount();
         void EditDepartment();
         void GetAllEmployeeData();
-        void EditEployeeByNo(string no, int salary, string position);
+        void EditEployeeByNo();
         void GetEmployeeDataByDepartment(string departmentName);
+        void DeleteEmployee();
 
     }
 }

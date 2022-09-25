@@ -1,4 +1,6 @@
 ﻿using System;
+using Console_App.Interfaces;
+using Console_App.Services;
 
 namespace Console_App
 {
@@ -19,6 +21,7 @@ namespace Console_App
                 Console.WriteLine("5. Iscilerin melumatlarini elde et");
                 Console.WriteLine("6. Iscinin maas ve vezifesini deyisin");
                 Console.WriteLine("7. Departamentdeki iscilerin melumatlari");
+                Console.WriteLine("8. Iscini departamentden sil");
 
 
                 string answerstr = Console.ReadLine();
@@ -34,37 +37,45 @@ namespace Console_App
                 switch (answernum)
                 {
                     case 1:
-                        AddDepartment(ref hrManagement);                   
+
+                        GetDepartments(ref hrManagement);
+                                          
                         break;
 
                     case 2:
 
-                        AddEmployee(ref hrManagement);
+                        AddDepartment(ref hrManagement);
+                        
                         break;
+
                     case 3:
 
                         EditDepartment(ref hrManagement);
 
                         break;
                     case 4:
-                        //hrManagement.GetDepartments();
-                        GetDepartments(ref hrManagement);
+
+                        GetAllEmployeeData(ref hrManagement);
 
                         break;
                     case 5:
-                        //hrManagement.GetEmployeeData();
-                        GetAllEmployeeData(ref hrManagement);
+
+                        GetEmployeeDataByDepartment(ref hrManagement);
 
                         break;
                     case 6:
 
-                        EditEmployee(ref hrManagement);
+                        AddEmployee(ref hrManagement);
+ 
                         break;
                     case 7:
-                        GetEmployeeDataByDepartment(ref hrManagement);
-                        //Console.WriteLine("Departamentin adini yazin");
-                        //string departNameForGettingEmployees = Console.ReadLine();
-                        //hrManagement.GetEmployeeDataByDepartment(departNameForGettingEmployees);
+
+                        EditEmployee(ref hrManagement);
+
+                        break;
+                    case 8:
+
+                        DeleteEmployee(ref hrManagement);
 
                         break;
 
@@ -157,14 +168,8 @@ namespace Console_App
 
         static void EditEmployee(ref IHrManagement hrManagement)
         {
-            Console.WriteLine("Deyismek istediyiniz iscinin nomresini daxil edin");
-            string employeeNumber = Console.ReadLine();
-            Console.WriteLine("Yeni maas elave edin");
-            string newemployeesalary = Console.ReadLine();
-            int newemployeesalarynum = int.Parse(newemployeesalary);
-            Console.WriteLine("yeni vezife daxil edin");
-            string newpositionofemployee = Console.ReadLine();
-            hrManagement.EditEployeeByNo(employeeNumber, newemployeesalarynum, newpositionofemployee);
+           
+            hrManagement.EditEployeeByNo();
         }
         static void GetEmployeeDataByDepartment(ref IHrManagement hrManagement)
         {
@@ -172,5 +177,11 @@ namespace Console_App
             string departNameForGettingEmployees = Console.ReadLine();
             hrManagement.GetEmployeeDataByDepartment(departNameForGettingEmployees);
         }
+        static void DeleteEmployee(ref IHrManagement hrManagement)
+        {
+
+            hrManagement.DeleteEmployee();
+        }
+
     }
 }
