@@ -12,8 +12,10 @@ namespace Console_App
         void AddEmployees(string fullname, string position, int esalaryLimit, string edepartmentName);
         void GetDepartments();
         void GetEmployeesCount();
-        void EditDepartment(string departmentName, int workerlimit, int salarylimit);
-        void GetEmployeeData();
+        void EditDepartment();
+        void GetAllEmployeeData();
         void EditEployeeByNo(string no, int salary, string position);
+        void GetEmployeeDataByDepartment(string departmentName);
+
     }
 }

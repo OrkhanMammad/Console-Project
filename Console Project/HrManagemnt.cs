@@ -69,27 +69,40 @@ namespace Console_App
 
        
 
-        public void EditDepartment(string departmentName, int workerlimit, int salarylimit)
+        public void EditDepartment()
         {
-            Console.WriteLine("yeni adi daxil et");
-            string newdepartmentName = Console.ReadLine();
+            Console.WriteLine("Deyismek istediyiniz departamentin adini daxil edin");
+            string olddepartmentName = Console.ReadLine();
            
-
-            //int newsalarylimitnum = int.Parse(newsalarylimitstr);
-
             foreach (Departments departments in _departments)
             { 
-                if (!(departments.DepartmentName==departmentName) || workerlimit<1 || workerlimit>10 || salarylimit<250)
+                if (!(departments.DepartmentName.ToUpper()==olddepartmentName.ToUpper()))
                 {
-                    Console.WriteLine("Duzgun melumat daxil et");
+                    Console.WriteLine("Bu Adda Departament Yoxdur");
                 }
                 else
                 {
-                    departments.DepartmentName = newdepartmentName;
+                    Console.WriteLine("yeni departament adi daxil et");
+                    string newdepartmentname=Console.ReadLine();
+                    Console.WriteLine("yeni isci limiti daxil edin");
+                    string newworkerlimitfornewdep=Console.ReadLine();
+                    int newworkerlimitfornewdepnum=int.Parse(newworkerlimitfornewdep);
+                    if (newworkerlimitfornewdepnum>departments.WorkerLimit)
+                    {
+                        Console.WriteLine("yeni limit evvelkinden boyuk ola bilmez");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yeni Maas limiti daxil et");
+                        string newsalarylimitfornewdep = Console.ReadLine();
+                        int newsalarylimitfornewdepnum = int.Parse(newsalarylimitfornewdep);
+                        departments.DepartmentName = newdepartmentname;
+                        departments.WorkerLimit = newworkerlimitfornewdepnum;
+                        departments.DsalaryLimit = newsalarylimitfornewdepnum;
 
-                    departments.WorkerLimit = workerlimit;
-
-                    departments.DsalaryLimit = salarylimit;
+                    }
+                    
+                   
                 }
             }
         }
@@ -133,7 +146,7 @@ namespace Console_App
             }
         }
 
-        public void GetEmployeeData()
+        public void GetAllEmployeeData()
         {
             foreach (Departments departments in _departments)
             {
@@ -154,7 +167,25 @@ namespace Console_App
             }
         }
 
-        
+        public void GetEmployeeDataByDepartment(string departmentName)
+        {
+            foreach (Departments departments in _departments)
+            {
+
+                for (int i = 0; i < departments.Employees.Length; i++)
+                {
+                    if (departmentName.ToUpper()==departments.DepartmentName.ToUpper())
+                    {
+                        Console.WriteLine($"Iscinin nomresi: {departments.Employees[i].NO}\nAd ve soyadi:{departments.Employees[i].FullName}\nMaasi: {departments.Employees[i].EsalaryLimit}\nVezifesi:{departments.Employees[i].Position}");
+                    }
+                    
+                }
+
+            }
+
+
+
+        }
     }
 
 }
