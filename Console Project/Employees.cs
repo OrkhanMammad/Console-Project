@@ -25,7 +25,7 @@ namespace Console_App
             EdepartmentName = edepartmentName;
             _no++;
             NO = $"{edepartmentName[0].ToString().ToUpper()}{edepartmentName[1].ToString().ToUpper()}{_no}";
-            
+
         }
 
 

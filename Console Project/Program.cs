@@ -15,6 +15,9 @@ namespace Console_App
                 Console.WriteLine("1. Departament elave edin");
                 Console.WriteLine("2. Isci elave et");
                 Console.WriteLine("3. Departmenti deyisin");
+                Console.WriteLine("4. Departamentlerin melumatlarini elde et");
+                Console.WriteLine("5. Iscilerin melumatlarini elde et");
+                Console.WriteLine("6. Iscinin maas ve vezifesini deyisin");
                 string answerstr = Console.ReadLine();
                 int answernum;
                 while (!int.TryParse(answerstr, out answernum) || answernum < 1 || answernum>6)
@@ -51,14 +54,17 @@ namespace Console_App
 
                         }
                         hrManagement.AddDepartments(departmentnamestr, workerlimitnum, dsalarylimitnum);
-                        Console.WriteLine(hrManagement.departments.Length);
+                        ////yoxlanis
+                        ////Console.WriteLine($"Departamentlerin sayi: {hrManagement.departments.Length}");
 
-                        foreach (Departments item in hrManagement.departments)
-                        {
-                            //Console.WriteLine(item.DepartmentName);
-                            Console.WriteLine($"Departament adi:{item.DepartmentName}\nIsci limiti:{item.WorkerLimit}\nMaas limiti:{item.DsalaryLimit}");
 
-                        }
+                        ////foreach (Departments item in hrManagement.departments)
+                        ////{
+                        ////    //Console.WriteLine(item.DepartmentName);
+                        ////    Console.WriteLine($"Yaradildi\n Departament adi:{item.DepartmentName}\nIsci limiti:{item.WorkerLimit}\nMaas limiti:{item.DsalaryLimit}");
+
+                        ////}
+                        ////yoxlanis
                         break;
 
                     case 2:
@@ -82,7 +88,7 @@ namespace Console_App
                         Console.WriteLine("Iscinin elave olunacagi departamenti siyahidan secib yazin");
 
                         Console.WriteLine("Departamentlerin siyahisi");
-                        hrManagement.GetDepartmentsName();
+                        hrManagement.GetDepartments();
                         string edepartmentname = Console.ReadLine();
                         hrManagement.AddEmployees(fullnamestr,positionstr,esalarylimitnum,edepartmentname);
                         hrManagement.GetEmployeesCount();
@@ -102,10 +108,25 @@ namespace Console_App
 
                         hrManagement.EditDepartment(departmentname1,newworkerlimitnum,newsalarylimitnum);
 
+                        break;
+                    case 4:
+                        hrManagement.GetDepartments();
+
+                        break;
+                    case 5:
+                        hrManagement.GetEmployeeData();
 
 
-
-
+                        break;
+                    case 6:
+                        Console.WriteLine("Deyismek istediyiniz iscinin nomresini daxil edin");
+                        string employeeNumber=Console.ReadLine();
+                        Console.WriteLine("Yeni maas elave edin");
+                        string newemployeesalary=Console.ReadLine();
+                        int newemployeesalarynum = int.Parse(newemployeesalary);
+                        Console.WriteLine("yeni vezife daxil edin");
+                        string newpositionofemployee=Console.ReadLine();
+                        hrManagement.EditEployeeByNo(employeeNumber, newemployeesalarynum, newpositionofemployee);
 
 
 
