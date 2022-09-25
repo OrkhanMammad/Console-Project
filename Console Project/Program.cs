@@ -2,6 +2,7 @@
 using Console_App.Interfaces;
 using Console_App.Services;
 
+
 namespace Console_App
 {
     class Program
@@ -13,16 +14,18 @@ namespace Console_App
 
             do
             {
+                Console.WriteLine(" ");
                 Console.WriteLine("Etmek Istediyiniz Emeliyyati Secin");
-                Console.WriteLine("1. Departament elave edin");
-                Console.WriteLine("2. Isci elave et");
+                Console.WriteLine(" ");
+                Console.WriteLine("1. Departamentlerin melumatlarini elde et");
+                Console.WriteLine("2. Departament elave edin");
                 Console.WriteLine("3. Departmenti deyisin");
-                Console.WriteLine("4. Departamentlerin melumatlarini elde et");
-                Console.WriteLine("5. Iscilerin melumatlarini elde et");
-                Console.WriteLine("6. Iscinin maas ve vezifesini deyisin");
-                Console.WriteLine("7. Departamentdeki iscilerin melumatlari");
+                Console.WriteLine("4. Iscilerin melumatlarini elde et");
+                Console.WriteLine("5. Departamentdeki iscilerin melumatlari");
+                Console.WriteLine("6. Isci elave et");
+                Console.WriteLine("7. Iscinin maas ve vezifesini deyisin");
                 Console.WriteLine("8. Iscini departamentden sil");
-
+                Console.WriteLine("");
 
                 string answerstr = Console.ReadLine();
                 int answernum;
@@ -97,8 +100,6 @@ namespace Console_App
         }
         
         static void AddDepartment(ref IHrManagement hrManagement)
-
-
         {
             Console.WriteLine("Departament adi daxil et");
             string departmentnamestr = Console.ReadLine();
@@ -142,6 +143,7 @@ namespace Console_App
                 positionstr = Console.ReadLine();
             }
             Console.WriteLine("Iscinin minimum maasini daxil et");
+            Console.WriteLine(" ");
             string esalarylimitstr = Console.ReadLine();
             int esalarylimitnum;
             while (!int.TryParse(esalarylimitstr, out esalarylimitnum) || esalarylimitnum < 250)
@@ -152,7 +154,9 @@ namespace Console_App
             Console.WriteLine("Iscinin elave olunacagi departamenti siyahidan secib yazin");
 
             Console.WriteLine("Departamentlerin siyahisi");
+            Console.WriteLine(" ");
             hrManagement.GetDepartments();
+            Console.WriteLine(" ");
             string edepartmentname = Console.ReadLine();
             hrManagement.AddEmployees(fullnamestr, positionstr, esalarylimitnum, edepartmentname);
             hrManagement.GetEmployeesCount();

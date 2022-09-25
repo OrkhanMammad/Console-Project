@@ -78,20 +78,17 @@ namespace Console_App.Services
 
             foreach (Departments departments in _departments)
             {
-                if (!(departments.DepartmentName.ToUpper() == olddepartmentName.ToUpper()))
+                if ((departments.DepartmentName.ToUpper() == olddepartmentName.ToUpper()))
                 {
-                    Console.WriteLine("Bu Adda Departament Yoxdur");
-                }
-                else
-                {
+
                     Console.WriteLine("yeni departament adi daxil et");
                     string newdepartmentname = Console.ReadLine();
                     Console.WriteLine("yeni isci limiti daxil edin");
                     string newworkerlimitfornewdep = Console.ReadLine();
                     int newworkerlimitfornewdepnum = int.Parse(newworkerlimitfornewdep);
-                    if (newworkerlimitfornewdepnum > departments.WorkerLimit)
+                    if (newworkerlimitfornewdepnum < departments.WorkerLimit)
                     {
-                        Console.WriteLine("yeni limit evvelkinden boyuk ola bilmez");
+                        Console.WriteLine("yeni limit evvelkinden kicik ola bilmez");
                     }
                     else
                     {
@@ -103,7 +100,10 @@ namespace Console_App.Services
                         departments.DsalaryLimit = newsalarylimitfornewdepnum;
 
                     }
-
+                }
+                else
+                {
+                    Console.WriteLine("Bu Adda Departament Yoxdur");
 
                 }
             }
@@ -118,13 +118,9 @@ namespace Console_App.Services
             {
                 for (int i = 0; i < departments.Employees.Length; i++)
                 {
-                    if (!(departments.Employees[i].NO.ToUpper() == oldemployenumber.ToUpper()))
+                    if (departments.Employees[i].NO.ToUpper() == oldemployenumber.ToUpper())
                     {
-                        Console.WriteLine("Bu nomreli isci movcud deyil");
 
-                    }
-                    else
-                    {
                         Console.WriteLine($"Iscinin Nomresi: {departments.Employees[i].NO}\nIscinin ad ve soyadi: {departments.Employees[i].FullName}\nIscinin maasi: {departments.Employees[i].EsalaryLimit}\nIscinin vezifesi: {departments.Employees[i].Position}\nIscinin departamenti: {departments.Employees[i].EdepartmentName}");
                         Console.WriteLine("iscinin yeni maasini daxil et");
                         string newsalaryfornewemployee = Console.ReadLine();
@@ -133,7 +129,14 @@ namespace Console_App.Services
                         string newpositionfornewemployee = Console.ReadLine();
                         departments.Employees[i].EsalaryLimit = newsalaryfornewemployeenum;
                         departments.Employees[i].Position = newpositionfornewemployee;
-                        return;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Bu nomreli isci movcud deyil");
+                        
+
+
 
                     }
 
@@ -152,7 +155,7 @@ namespace Console_App.Services
         {
             foreach (Departments departments in _departments)
             {
-                Console.WriteLine($"Departamentin adi:{departments.DepartmentName}\n Isci Limiti: {departments.WorkerLimit}\n Maas Limiti: {departments.DsalaryLimit}\n Iscilerin Sayi: {departments.Employees.Length}");
+                Console.WriteLine($"Departamentin adi:{departments.DepartmentName}\n Isci Limiti: {departments.WorkerLimit}\n Maas Limiti: {departments.DsalaryLimit}\n Iscilerin Sayi: {departments.Employees.Length}\n'  '");
             }
         }
 
@@ -168,19 +171,22 @@ namespace Console_App.Services
                     }
                     else
                     {
-                        Console.WriteLine($"Iscinin Nomresi: {departments.Employees[i].NO}\nIscinin ad ve soyadi: {departments.Employees[i].FullName}\nIscinin maasi: {departments.Employees[i].EsalaryLimit}\nIscinin vezifesi: {departments.Employees[i].Position}\nIscinin departamenti: {departments.Employees[i].EdepartmentName}");
+                        Console.WriteLine($"Iscinin Nomresi: {departments.Employees[i].NO}\nIscinin ad ve soyadi: {departments.Employees[i].FullName}\nIscinin maasi: {departments.Employees[i].EsalaryLimit}\nIscinin vezifesi: {departments.Employees[i].Position}\nIscinin departamenti: {departments.Employees[i].EdepartmentName}\n'    '");
                     }
 
                 }
 
 
             }
+            
         }
 
         public void GetEmployeesCount()
         {
             foreach (Departments departments in _departments)
             {
+               
+
                 Console.WriteLine(departments.Employees.Length);
             }
         }
@@ -212,7 +218,7 @@ namespace Console_App.Services
 
             foreach (Departments departments in _departments)
             {
-                if (!(departments.DepartmentName == deleteEmployeeInDepertment))
+                if (!(departments.DepartmentName.ToUpper() == deleteEmployeeInDepertment.ToUpper()))
                 {
                     Console.WriteLine("bu adda departament yoxdur");
                 }
@@ -224,11 +230,15 @@ namespace Console_App.Services
                     {
                         if (!(deleteEmployeeBynumber.ToUpper() == departments.Employees[i].NO.ToUpper()))
                         {
+
                             Console.WriteLine("bu nomreli isci movcud deyil");
                         }
                         else
                         {
                             departments.Employees[i] = null;
+                            Array.Resize(ref departments.Employees, departments.Employees.Length - 1);
+                            
+                            
                         }
                     }
                 }
